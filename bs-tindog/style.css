@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  text-align: center;
+  padding: 8rem 12rem;
+}
+
+header {
+  overflow: hidden;
+  height: 90vh;
+  color: #fff;
+  padding: 4rem 12rem 0;
+  background: coral;
+}
+header .navi {
+  padding: 0;
+}
+header .navi .navbar-brand {
+  font-size: 2.5rem;
+}
+header #main {
+  margin-top: 4rem;
+}
+header #main h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+header #main img {
+  transform: rotate(25deg);
+  width: 60%;
+  position: relative;
+  left: 100px;
+}
+#features i {
+  font-size: 4rem;
+  color: coral;
+  margin-bottom: 1rem;
+}
+
+#reviews {
+  background-color: coral;
+  color: #fff;
+  text-align: center;
+}
+#reviews h3 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+#reviews span {
+  font-style: italic;
+}
+#reviews img {
+  width: 100px;
+  height: 100px;
+  margin-right: 1rem;
+}
+
+#reviews .carousel-item {
+  padding: 8rem 12rem;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 2rem;
+  }
+  .wrapper {
+    padding: 2rem;
+  }
+  header #main {
+    text-align: center;
+  }
+  header #main .row .col:first-child {
+    margin-bottom: 2rem;
+  }
+
+  header #main img {
+    transform: rotate(0);
+    position: static;
+  }
+  #reviews .carousel-item {
+    padding: 2rem;
+  }
+}

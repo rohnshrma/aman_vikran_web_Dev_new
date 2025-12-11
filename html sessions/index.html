@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5, telling the browser how to render the page -->
+
+<html>
+  <!-- Root element of the HTML document -->
+
+  <head> </head>
+  <!-- The head section is empty here but normally contains metadata, title, and links to styles/scripts -->
+
+  <body>
+    <!-- Visible content of the webpage goes inside the body -->
+
+    <ul>
+      <!-- Unordered list starts here for navigation links -->
+
+      <li><a href="index.html">Home</a></li>
+      <!-- List item with a link to index.html page labeled "Home" -->
+
+      <li><a href="about.html">About</a></li>
+      <!-- List item with a link to about.html page labeled "About" -->
+
+      <li><a href="contact.html">Contact</a></li>
+      <!-- List item with a link to contact.html page labeled "Contact" -->
+
+      <li><a href="#student_data">Student Data</a></li>
+      <!-- List item with a link that points to an element with id="student_data" on the current page -->
+    </ul>
+
+    <hr />
+    <!-- Horizontal rule draws a line across the page to separate content -->
+
+    <!-- textual data -->
+
+    <!-- heading h1-h6 -->
+    <h1>hello world</h1>
+    <!-- Largest heading, main title -->
+
+    <h2>hello world</h2>
+    <!-- Second largest heading -->
+
+    <h3>hello world</h3>
+    <!-- Third largest heading -->
+
+    <h4>hello world</h4>
+    <!-- Fourth largest heading -->
+
+    <h5>hello world</h5>
+    <!-- Fifth largest heading -->
+
+    <h6>hello world</h6>
+    <!-- Smallest heading -->
+
+    <!-- paragraphs -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur rem
+      tempore enim quasi doloremque suscipit exercitationem ipsa recusandae vero
+      earum, ab numquam, pariatur blanditiis porro quod cumque a voluptate
+      repellat! Facilis, omnis vitae? Recusandae ex magnam tenetur veniam earum
+      corporis ut vitae laboriosam ducimus suscipit! Quaerat tenetur earum
+      nulla! Quae, dolorum in, quos consequuntur debitis iusto sed amet
+      assumenda sit fugiat maiores sequi excepturi, voluptas laudantium
+      exercitationem eos. Maxime quaerat adipisci quisquam est ducimus omnis
+      nesciunt voluptatum culpa voluptates doloremque in obcaecati porro
+      praesentium, iusto, quibusdam vitae earum at maiores quo incidunt animi.
+      Dolorum temporibus quas facere nesciunt veniam aliquid! Nemo, autem et
+      saepe, aliquam iusto aliquid tempora libero error nisi voluptas
+      reprehenderit magni est alias, dolor enim deleniti. Perspiciatis ipsam
+      beatae neque.
+    </p>
+    <!-- Paragraph tag used for block of text -->
+
+    <!-- lists : ordered , unordered and descriptive -->
+
+    <ol reversed type="I">
+      <!-- Ordered list with uppercase Roman numerals (I, II, III, ...)
+           "reversed" attribute makes the list count down instead of up -->
+      <li>Apple</li>
+      <li>Apple</li>
+      <li>Apple</li>
+      <li>Apple</li>
+    </ol>
+
+    <ul type="disc">
+      <!-- Unordered list with bullet points as discs (default style) -->
+      <li>Apple</li>
+      <li>Apple</li>
+      <li>Apple</li>
+      <li>Apple</li>
+      <li>Apple</li>
+    </ul>
+
+    <dl>
+      <!-- Description list: terms and their descriptions -->
+      <dt>Apple</dt>
+      <!-- Description term -->
+      <dd>Red in color</dd>
+      <!-- Description details -->
+      <dt>Apple</dt>
+      <dd>Red in color</dd>
+      <dt>Apple</dt>
+      <dd>Red in color</dd>
+      <dt>Apple</dt>
+      <dd>Red in color</dd>
+    </dl>
+
+    <!-- table -->
+    <table id="student_data" border="1">
+      <!-- Table with border and an id used for linking -->
+      <tr>
+        <!-- Table row -->
+        <th colspan="3">Student Data</th>
+        <!-- Table header spanning 3 columns -->
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <!-- Table headers for each column -->
+      </tr>
+      <tr>
+        <td>Vikram</td>
+        <td>22</td>
+        <td>Male</td>
+        <!-- Table data for one student -->
+      </tr>
+      <tr>
+        <td>Aman</td>
+        <td>21</td>
+        <td>Male</td>
+        <!-- Table data for another student -->
+      </tr>
+    </table>
+
+    <table border="1">
+      <tr>
+        <th colspan="2">Vikram</th>
+        <!-- Table header spanning two columns -->
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td>Vikram</td>
+        <!-- Data row showing name -->
+      </tr>
+      <tr>
+        <th>Age</th>
+        <td>22</td>
+        <!-- Data row showing age -->
+      </tr>
+      <tr>
+        <th>Gender</th>
+        <td>Male</td>
+        <!-- Data row showing gender -->
+      </tr>
+      <tr>
+        <th rowspan="2">Details</th>
+        <td>9876545676</td>
+        <!-- The "Details" header spans 2 rows and related data are shown -->
+      </tr>
+      <tr>
+        <td>vikram@email.com</td>
+        <!-- Second row for details -->
+      </tr>
+    </table>
+
+    <!-- links : external and internal -->
+
+    <!-- external -->
+
+    <!-- another website -->
+    <a href="https://www.google.com">
+      <button>Google</button>
+      <!-- Link with a button inside for external site Google -->
+    </a>
+
+    <!-- call -->
+    <a href="tel:+918766367815">
+      <button>Call Me</button>
+      <!-- Clicking this button initiates a phone call on supported devices -->
+    </a>
+
+    <!-- email -->
+    <a
+      href="mailto:rohn11shrma@email.com?subject=new student&body=we have a new student&cc=webigeeks@email.com"
+    >
+      <button>Email</button>
+      <!-- Clicking this button opens the default email client with prefilled fields -->
+    </a>
+
+    <!-- whatsapp -->
+    <a
+      href="https://api.whatsapp.com/send/?phone=%2B919355281142&text&type=phone_number&app_absent=0"
+      target="_blank"
+    >
+      <button>Whatsapp</button>
+      <!-- Link to send a WhatsApp message to the specified number in a new browser tab -->
+    </a>
+  </body>
+</html>

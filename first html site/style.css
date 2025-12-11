@@ -1,0 +1,25 @@
+h1 {
+  /* text size */
+  font-size: 40px;
+  /* text color */
+  color: Red;
+  /* text boldness */
+  font-weight: 100;
+  /* text font family */
+  font-family: Arial, Helvetica, sans-serif;
+  /* letter spacing */
+  letter-spacing: 10px;
+  /* text shadow */
+  /* x , y , b , c */
+  text-shadow: -2px 2px 0 blue;
+  /* text decoration : underline , overline, line through */
+
+  /* text-decoration: underline green dashed; */
+  /* text-decoration: overline green dashed; */
+  /* text-decoration: line-through green dashed; */
+}
+
+p {
+  text-align: justify;
+  line-height: 2;
+}

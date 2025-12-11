@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- This is the DOCTYPE declaration. It must be the first line in an HTML document.
+     It tells browsers that this is an HTML5 document, ensuring the page is rendered correctly. -->
+
+<html lang="en">
+  <!-- The <html> tag is the root element of the HTML document, containing all other elements.
+     The 'lang="en"' attribute specifies that the page's primary language is English, aiding accessibility and search engines. -->
+
+  <head>
+    <!-- The <head> tag contains metadata about the document, such as the title and links to external resources.
+     This content is not directly visible on the webpage. -->
+
+    <title>About</title>
+    <!-- The <title> tag sets the page's title, displayed in the browser's tab or title bar.
+         Here, it’s set to "About", so the browser tab will show "About". -->
+  </head>
+  <!-- Closes the <head> section. -->
+
+  <body>
+    <!-- The <body> tag contains all the visible content of the webpage, such as text, images, and multimedia. -->
+
+    <!-- navigation links -->
+    <!-- This is an HTML comment, used for developer notes. It’s not displayed on the webpage. -->
+
+    <ul>
+      <!-- The <ul> tag stands for "unordered list". It creates a list with bullet points for each item.
+         Used here for navigation links, as the order of links doesn’t matter. -->
+
+      <li><a href="index.html">Home</a></li>
+      <!-- The <li> tag defines a list item within the <ul>.
+             The <a> tag is an anchor tag that creates a hyperlink.
+             The 'href' attribute specifies the destination URL ("index.html", another page in the project).
+             The text "Home" is clickable and takes the user to the index.html page. -->
+
+      <li><a href="about.html">About</a></li>
+      <!-- A list item with a link to "about.html" (this page itself). Clicking "About" reloads the current page. -->
+
+      <li><a href="contact.html">Contact</a></li>
+      <!-- A list item with a link to "contact.html". Clicking "Contact" navigates to the Contact page. -->
+
+      <li><a href="index.html#student_data">Student Data</a></li>
+      <!-- A list item with a link to a specific section on "index.html" with an element that has 'id="student_data"'.
+             The '#' symbol in the href targets an element’s ID, allowing navigation to a specific part of a page. -->
+    </ul>
+    <!-- Closes the unordered list. -->
+
+    <hr />
+    <!-- The <hr> tag creates a horizontal line across the page to visually separate sections.
+         It’s a self-closing tag, meaning it doesn’t need a separate closing tag. -->
+
+    <h1>About</h1>
+    <!-- The <h1> tag defines a level-1 heading, the most prominent heading on the page.
+         Here, it displays "About" in large, bold text to indicate the page’s main topic. -->
+
+    <img
+      src="https://m.media-amazon.com/images/S/pv-target-images/3951aad835bc9e092b13383673786eddd07a50b676db3921304340f66f37219a._SX1080_FMjpg_.jpg"
+      alt="iron man flying"
+    />
+    <!-- The <img> tag embeds an image on the page.
+         'src' specifies the image’s URL (here, an external link to an Iron Man image).
+         'alt="iron man flying"' provides alternative text for accessibility (e.g., for screen readers) or if the image fails to load.
+         This tag is self-closing, as it doesn’t contain other elements. -->
+
+    <!-- <audio src="./assets/sample.mp3" autoplay controls muted></audio> -->
+    <!-- This is a commented-out <audio> tag, so it’s ignored by the browser.
+         If uncommented, it would play an audio file from "./assets/sample.mp3".
+         'autoplay' would start the audio automatically when the page loads.
+         'controls' adds a player interface (play/pause, volume, etc.).
+         'muted' ensures the audio is silent by default (required for autoplay in many browsers). -->
+
+    <audio autoplay controls muted>
+      <!-- The <audio> tag embeds an audio player for playing sound files.
+         'autoplay' makes the audio start playing when the page loads.
+         'controls' displays a user interface for controlling playback (play, pause, volume).
+         'muted' ensures the audio is silent by default, often required for autoplay to work in modern browsers. -->
+
+      <source src="./assets/sample.mp3" type="audio/mp3" />
+      <!-- The <source> tag specifies the audio file to play within the <audio> tag.
+             'src="./assets/sample.mp3"' points to a local MP3 file in the "assets" folder.
+             'type="audio/mp3"' indicates the file format, helping the browser understand the file.
+             Using <source> is a more modern approach than directly setting 'src' on the <audio> tag. -->
+    </audio>
+    <!-- Closes the <audio> tag. -->
+
+    <video
+      src="./assets/sample.mp4"
+      autoplay
+      controls
+      muted
+      width="200px"
+    ></video>
+    <!-- The <video> tag embeds a video player on the page.
+         'src="./assets/sample.mp4"' points to a local video file in the "assets" folder.
+         'autoplay' starts the video automatically when the page loads.
+         'controls' adds a player interface (play, pause, seek, etc.).
+         'muted' ensures the video plays without sound by default (required for autoplay in many browsers).
+         'width="200px"' sets the video player’s width to 200 pixels. -->
+
+    <video autoplay controls muted width="200px">
+      <!-- Another <video> tag with the same attributes as the previous one, but using a <source> tag for the video file.
+         This demonstrates an alternative, more modern way to specify the video source. -->
+
+      <source src="./assets/sample.mp4" type="video/mp4" />
+      <!-- The <source> tag specifies the video file to play.
+             'src="./assets/sample.mp4"' points to the same local video file.
+             'type="video/mp4"' indicates the file format, helping the browser process the file correctly. -->
+    </video>
+    <!-- Closes the second <video> tag. -->
+
+    <a href="https://www.facebook.com">
+      <img width="200px" src="./assets/facebook.png" alt="facebook" />
+    </a>
+    <!-- An <a> tag creates a hyperlink that wraps an <img> tag, making the image clickable.
+         'href="https://www.facebook.com"' links to Facebook’s website.
+         The <img> tag displays a local image from "./assets/facebook.png".
+         'width="200px"' sets the image width to 200 pixels.
+         'alt="facebook"' provides alternative text for accessibility or if the image fails to load. -->
+
+    <a href="https://www.instagram.com">
+      <img width="200px" src="./assets/instagram.png" alt="instagram" />
+    </a>
+    <!-- Another clickable image linking to Instagram’s website.
+         The image is sourced from "./assets/instagram.png". -->
+
+    <a href="https://www.twitter.com">
+      <img width="200px" src="./assets/twitter.png" alt="twitter" />
+    </a>
+    <!-- A clickable image linking to Twitter’s website (note: Twitter is now known as X).
+         The image is sourced from "./assets/twitter.png". -->
+  </body>
+  <!-- Closes the <body> tag. -->
+</html>
+<!-- Closes the <html> tag, marking the end of the HTML document. -->

@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Arial;
+}
+
+p {
+  font-family: sans-serif;
+  color: #555;
+}
+
+.wrapper {
+  text-align: center;
+  padding: 4rem 8rem;
+}
+
+.l-3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+#features {
+  display: flex;
+  justify-content: space-between;
+}
+#features .feature {
+  width: 25%;
+}
+#features .feature:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+#features .feature:hover i {
+  transform: scale(1.1) rotate(-25deg);
+  transition: 0.3s ease-in-out;
+}
+#features .feature i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: coral;
+  text-shadow: -2px 2px 2px #000;
+}

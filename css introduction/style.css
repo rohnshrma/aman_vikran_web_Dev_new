@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* 1rem = 16px */
+  margin-bottom: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.wrapper {
+  padding: 68px;
+  border-radius: 20px;
+  margin: 68px;
+  text-align: center;
+}
+
+.level-2 {
+  font-size: 3rem;
+}
+
+#main {
+  color: #fff;
+
+  /* single color as background */
+  /* background: tomato; */
+  /* background-color: teal; */
+
+  /* multicolor background */
+  /* background: linear-gradient(teal, tan); */
+  /* background: linear-gradient(teal, tan, orange); */
+  /* background: linear-gradient(90deg, teal, tan); */
+  /* background: linear-gradient(45deg, teal 50%, tan 50%); */
+
+  /* set image as background */
+  /* background: url(https://st4.depositphotos.com/1008648/26386/i/450/depositphotos_263867032-stock-photo-abstract-digital-network-connection-blue.jpg); */
+  /* background-image: url(https://st4.depositphotos.com/1008648/26386/i/450/depositphotos_263867032-stock-photo-abstract-digital-network-connection-blue.jpg); */
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://st4.depositphotos.com/1008648/26386/i/450/depositphotos_263867032-stock-photo-abstract-digital-network-connection-blue.jpg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  background-attachment: fixed;
+
+  /* padding : inner spacing */
+
+  /* padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 40px;
+  padding-bottom: 100px;
+   */
+
+  /* t-r-b-l */
+  /* padding: 10px; */
+
+  /* t-b  ,l-r */
+  /* padding: 20px 10px; */
+
+  /* t, l-r , b */
+  /* padding: 20px 10px 30px; */
+
+  /* t,r,b,l */
+  /* padding: 20px 10px 30px 50px; */
+
+  /* margin : outer spacing */
+
+  /* margin-left: 20px; */
+  /* margin-top: 10px; */
+  /* margin-right: 40px; */
+  /* margin-bottom: 100px; */
+
+  /* t-r-b-l */
+  /* margin: 10px; */
+
+  /* t-b  ,l-r */
+  /* margin: 20px 10px; */
+
+  /* t, l-r , b */
+  /* margin: 20px 10px 30px; */
+
+  /* t,r,b,l */
+  /* margin: 20px 10px 30px 50px; */
+
+  /* border */
+  /* border-color: orange;
+  border-width: 20px;
+  border-style: double; */
+
+  /* border: 10px solid orange; */
+  /* border-top: 10px solid orange; */
+}
+
+#skills {
+  background: linear-gradient(wheat, rgb(165, 195, 192));
+}

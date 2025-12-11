@@ -1,0 +1,88 @@
+/* The * selector targets ALL elements on the webpage, like divs, paragraphs, headings, etc. */
+/* This is called the universal selector and is used to apply styles to everything at once */
+* {
+  /* Margin is the space OUTSIDE an element, separating it from other elements */
+  /* Setting margin to 0 removes any default margin that browsers add to elements */
+  /* This ensures no extra space around elements unless we choose to add it */
+  margin: 0;
+  /* Padding is the space INSIDE an element, between its content and its border */
+  /* Setting padding to 0 removes any default padding browsers might add */
+  /* This makes sure the content sits right at the edge of the element’s border */
+  padding: 0;
+}
+
+/* Flexbox is a CSS layout system that helps arrange elements in a flexible, organized way */
+/* Here, we’re styling an element with the ID "parent" (e.g., <div id="parent"> in HTML) */
+#parent {
+  /* Padding adds space INSIDE the #parent element, between its content and its border */
+  /* 1rem = 16px (by default), so this adds 16px of space on all sides (top, right, bottom, left) */
+  padding: 1rem;
+  /* Sets the background color of the #parent element to grey */
+  /* This makes the entire area of the parent element grey */
+  background-color: grey;
+  /* Display: flex turns the #parent into a flex container */
+  /* This means its child elements (inside it) will be arranged using flexbox rules */
+  display: flex;
+
+  /* Justify-content controls how child elements are spaced HORIZONTALLY inside the flex container */
+  /* space-between spreads the children across the horizontal space */
+  /* The first child is at the start, the last child is at the end, and others are spaced evenly between */
+  /* Other possible values: start (all children at the left), end (all at the right), center (all centered), */
+  /* space-around (equal space around each child), space-evenly (equal space between and around children) */
+  justify-content: space-between;
+  /* Align-items controls how child elements are aligned VERTICALLY in the flex container */
+  /* center makes all children vertically centered within the parent’s height */
+  /* Other possible values: start (top), end (bottom), stretch (fills the height, default if no height set), */
+  /* first baseline (aligns based on text’s first line), last baseline (aligns based on text’s last line) */
+  align-items: center;
+
+  /* Flex-wrap controls whether child elements stay on one line or wrap to new lines if they don’t fit */
+  /* wrap means if there’s not enough space, children will move to a new line below */
+  /* Other values: nowrap (default, all children stay in one line, may shrink or overflow), */
+  /* wrap-reverse (same as wrap but new lines stack in reverse order, from bottom to top) */
+  flex-wrap: wrap;
+
+  /* Flex-direction sets the direction in which child elements are arranged */
+  /* column-reverse arranges children in a vertical column, but in REVERSE order (last child at the top) */
+  /* Other values: row (default, horizontal left-to-right), row-reverse (horizontal right-to-left), */
+  /* column (vertical top-to-bottom) */
+  flex-direction: column-reverse;
+}
+
+/* Targets any element with the class "child" (e.g., <div class="child"> in HTML) */
+/* These are the elements INSIDE the #parent element */
+.child {
+  /* Sets the width of each child element to 250 pixels */
+  /* This makes every child element 250px wide, regardless of its content */
+  width: 250px;
+  /* The height property is commented out, so it’s not active */
+  /* If uncommented, height: 100px would make each child 100px tall */
+  /* height: 100px; */
+}
+
+/* Targets an element with the class "c1" (e.g., <div class="child c1">) */
+.c1 {
+  /* Sets the background color to wheat (a light yellowish color) */
+  background-color: wheat;
+  /* Sets the height of this specific child to 200 pixels */
+  /* This makes the .c1 element taller than if it used the commented-out 100px height */
+  height: 200px;
+}
+
+/* Targets an element with the class "c2" (e.g., <div class="child c2">) */
+.c2 {
+  /* Sets the background color to teal (a dark greenish-blue color) */
+  background-color: teal;
+  /* Sets the height of this specific child to 400 pixels */
+  /* This makes .c2 the tallest of the three child elements */
+  height: 400px;
+}
+
+/* Targets an element with the class "c3" (e.g., <div class="child c3">) */
+.c3 {
+  /* Sets the background color to tomato (a reddish-orange color) */
+  background-color: tomato;
+  /* Sets the height of this specific child to 300 pixels */
+  /* This makes .c3 taller than .c1 but shorter than .c2 */
+  height: 300px;
+}

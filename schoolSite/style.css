@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-family: sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+/* reusable classes */
+.wrapper {
+  padding: 8rem 12rem;
+  text-align: center;
+}
+.l-2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.l-3 {
+  color: teal;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 12px 14px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: transparent;
+}
+.btn-light {
+  background: #f5f5f5;
+  color: #333;
+}
+.btn-light:hover {
+  background: #fff;
+  transition: 0.3s ease-in-out;
+  color: #333;
+}
+.btn-green {
+  background: teal;
+  color: #fff;
+}
+.btn-green:hover {
+  transition: 0.3s ease-in-out;
+  background: rgb(0, 104, 104);
+}
+
+#hero {
+  text-align: center;
+  color: #fff;
+  height: calc(100vh - 68px);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(https://rschoolsite.netlify.app/university.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero .content h1 {
+  font-size: 5rem;
+}
+#hero button {
+  margin: 2rem 0.5rem 0;
+}
+
+/* navbar */
+#navbar {
+  box-shadow: 0 4px 4px #333;
+  position: sticky;
+  top: 0;
+  padding: 1rem 12rem;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navbar a {
+  color: #333;
+  font-family: Poppins;
+  text-decoration: none;
+}
+#navbar .logo {
+  width: 25%;
+  font-weight: 600;
+  color: teal;
+
+  font-size: 1.5rem;
+}
+#navbar ul {
+  width: 25%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+#navbar ul li {
+  margin: 0 1rem;
+}
+#navbar ul li:last-child {
+  margin-right: 0;
+}
+
+#navbar .nav_social_links li a i {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+#navbar .nav_social_links li:hover a i {
+  color: teal;
+  transition: 0.3s ease-in-out;
+}
+
+/* banner */
+#banner {
+  display: flex;
+}
+#banner .content-bx {
+  text-align: left;
+  width: 50%;
+}
+#banner .image-bx {
+  width: 50%;
+  background: url(https://rschoolsite.netlify.app/banner-bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#banner .feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+#banner .feature-row .icon-bx {
+  width: 100px;
+  border-radius: 5px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 4px #000;
+}
+
+#banner .feature-row .icon-bx i {
+  font-size: 3rem;
+  color: teal;
+}
+
+#banner .feature-row .feature-content-bx {
+  width: calc(100% - 120px);
+}
+
+#banner .feature-row .feature-content-bx h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#blogs .row {
+  display: flex;
+  margin-top: 4rem;
+  justify-content: space-between;
+}
+
+#blogs .row .col {
+  width: 28%;
+}
+
+#blogs .row .col .card .card-header {
+  height: 200px;
+  border-bottom: 0.5px solid grey;
+  overflow: hidden;
+}
+#blogs .row .col .card .card-header img {
+  object-fit: cover;
+}
+#blogs .row .col .card .card-body {
+  padding: 1rem;
+}
+#blogs .row .col .card .card-body .info-bx {
+  margin-bottom: 0.5rem;
+  display: flex;
+  font-family: sans-serif;
+  justify-content: space-between;
+}
+#blogs .row .col .card .card-body .info-bx .author_name {
+  color: teal;
+}
+
+#blogs .row .col .card .card-header img {
+  width: 100%;
+}
+#blogs .row .col .card {
+  border-radius: 5px;
+  border: 0.5px solid grey;
+  overflow: hidden;
+}
+
+#blogs .row .col .card .card-body h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#maps {
+  height: 50vh;
+}
+
+#courses .row {
+  display: flex;
+  margin-top: 4rem;
+  justify-content: space-between;
+}
+
+#courses .row .col {
+  width: 28%;
+}
+
+#courses .row .col .card .card-header {
+  height: 200px;
+  border-bottom: 0.5px solid grey;
+  overflow: hidden;
+}
+#blogs .row .col .card .card-header img {
+  object-fit: cover;
+}
+#courses .row .col .card .card-body {
+  padding: 1rem;
+}
+#courses .row .col .card .card-body .info-bx {
+  margin-top: 0.5rem;
+  display: flex;
+  font-family: sans-serif;
+  justify-content: space-between;
+}
+
+#courses .row .col .card .card-header img {
+  width: 100%;
+}
+#courses .row .col .card {
+  border-radius: 5px;
+  border: 0.5px solid grey;
+  overflow: hidden;
+}
+
+#courses .row .col .card .card-body h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+#courses .row .col .card .card-body .course_name {
+  text-align: left;
+  font-size: 1rem;
+  color: teal;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1rem;
+  }
+  #hero {
+    width: 100%;
+  }
+  #hero .content h1 {
+    font-size: 3rem;
+  }
+  #navbar {
+    justify-content: center;
+    padding: 1rem;
+  }
+  #navbar ul {
+    display: none;
+  }
+
+  #banner {
+    flex-direction: column;
+  }
+  #courses .row {
+    flex-direction: column;
+  }
+  #courses .row .col {
+    width: 100%;
+  }
+  #blogs .row .col {
+    width: 100%;
+  }
+  #blogs .row {
+    flex-direction: column;
+  }
+  #banner .content-bx {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  #banner .image-bx {
+    width: 100%;
+    height: 80vh;
+  }
+  #courses .row .col .card {
+    margin-bottom: 1rem;
+  }
+  #blogs .row .col .card {
+    margin-bottom: 1rem;
+  }
+}

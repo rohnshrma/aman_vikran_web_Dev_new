@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#parent {
+  background: #333;
+
+  height: 500px;
+  width: 500px;
+  position: sticky;
+  top: 10px;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+}
+
+/* position: sticky makes the parent stick to the viewport when it reaches 10px from the top while scrolling.
+Stays in the document flow but sticks relative to the viewport (or nearest positioned ancestor, if any).
+Without a positioned parent or specific context, it sticks based on the viewport. */
+
+.b1 {
+  background-color: turquoise;
+}
+.b2 {
+  background-color: wheat;
+}
+.b3 {
+  background-color: tomato;
+}
+.b4 {
+  background-color: mediumaquamarine;
+}

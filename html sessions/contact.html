@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- This is the DOCTYPE declaration. It must be the first line in an HTML document.
+     It tells browsers that this is an HTML5 document, ensuring the browser renders the page correctly. -->
+
+<html lang="en">
+  <!-- The <html> tag is the root element of the HTML document. It contains all other elements.
+     The 'lang="en"' attribute specifies that the primary language of the page is English, which helps with accessibility and search engines. -->
+
+  <head>
+    <!-- The <head> tag contains metadata (information about the document) that isn’t directly displayed on the webpage.
+     This includes things like the page title, character encoding, and links to external resources like stylesheets. -->
+
+    <title>Contact</title>
+    <!-- The <title> tag defines the title of the webpage, which appears in the browser's tab or title bar.
+         Here, it’s set to "Contact", so the browser tab will display "Contact". -->
+  </head>
+  <!-- Closes the <head> section. -->
+
+  <body>
+    <!-- The <body> tag contains all the visible content of the webpage, such as text, images, forms, and links.
+     Everything users see on the page goes inside this tag. -->
+
+    <!-- navigation links -->
+    <!-- This is an HTML comment. Comments are used to add notes for developers and are not displayed on the webpage. -->
+
+    <ul>
+      <!-- The <ul> tag stands for "unordered list". It creates a list with bullet points for each item.
+         Use <ul> when the order of items doesn’t matter (unlike <ol> for ordered lists with numbers). -->
+
+      <li><a href="index.html">Home</a></li>
+      <!-- The <li> tag defines a list item within the <ul>.
+             The <a> tag is an anchor tag used to create a hyperlink.
+             The 'href' attribute specifies the destination URL (here, "index.html", another page in the same project).
+             The text "Home" is what users see and click to navigate to the index.html page. -->
+
+      <li><a href="about.html">About</a></li>
+      <!-- Another list item with a link to "about.html". Clicking "About" takes the user to the about.html page. -->
+
+      <li><a href="contact.html">Contact</a></li>
+      <!-- A link to "contact.html" (this page itself). Clicking "Contact" reloads the current page. -->
+
+      <li><a href="index.html#student_data">Student Data</a></li>
+      <!-- This link points to a specific section on the index.html page with an element that has 'id="student_data"'.
+             The '#' symbol in the href indicates an ID reference, allowing navigation to a specific part of a page. -->
+    </ul>
+    <!-- Closes the unordered list. -->
+
+    <hr />
+    <!-- The <hr> tag creates a horizontal rule (a line across the page) to visually separate sections of content.
+         It’s a self-closing tag, meaning it doesn’t need a separate closing tag. -->
+
+    <h1>Contact</h1>
+    <!-- The <h1> tag defines a level-1 heading, the most prominent heading on the page.
+         Here, it displays "Contact" in large, bold text to indicate the page’s main topic. -->
+
+    <form
+      method="post"
+      action="mailto:rohn11shrma@gmail.com"
+      enctype="text/plain"
+    >
+      <!-- The <form> tag creates a form for user input, like text fields or buttons.
+         'method="post"' specifies that form data will be sent securely to the server (or destination).
+         'action="mailto:rohn11shrma@gmail.com"' means the form data will be sent as an email to the specified address.
+         'enctype="text/plain"' sets the format of the data sent (plain text in this case). Note: Using mailto is not reliable for production as it depends on the user’s email client. -->
+
+      <label for="username">Username : </label>
+      <!-- The <label> tag provides a text description for a form input, improving accessibility.
+             The 'for' attribute links the label to an input field with the matching 'id' (here, "username").
+             The text "Username :" is displayed next to the input field. -->
+
+      <input
+        required
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Enter username"
+      />
+      <!-- The <input> tag creates a field for user input.
+             'required' means the user must fill this field before submitting the form.
+             'type="text"' specifies a single-line text input.
+             'name="username"' is the key used when the form data is sent (e.g., in the email).
+             'id="username"' uniquely identifies this input and links it to the label’s 'for' attribute.
+             'placeholder="Enter username"' shows faint text in the field to guide the user. -->
+
+      <br />
+      <!-- The <br> tag creates a line break, moving the next element to a new line.
+             It’s self-closing and used here to separate form fields visually. -->
+
+      <label
+        >Email Address :
+        <input
+          type="email"
+          name="email_address"
+          placeholder="Enter email address"
+      /></label>
+      <!-- Another <label> with an <input> nested inside it (an alternative way to associate a label with an input).
+             'type="email"' ensures the input must be a valid email format (e.g., user@example.com).
+             'name="email_address"' is the key for this field in the form data.
+             'placeholder="Enter email address"' provides a hint to the user. -->
+
+      <br />
+
+      <label
+        >Password :
+        <input type="password" name="password" placeholder="Enter Password"
+      /></label>
+      <!-- A label and input for a password field.
+             'type="password"' hides the input as dots or asterisks for security.
+             'name="password"' is the key for this field in the form data.
+             'placeholder="Enter Password"' guides the user. -->
+
+      <br />
+
+      Gender :
+      <!-- Plain text "Gender :" acts as a heading for the radio buttons below.
+             It’s not inside a <label> tag, so it’s just for display. -->
+
+      <label><input type="radio" name="gender" value="male" /> Male </label>
+      <!-- A radio button for selecting "Male".
+             'type="radio"' creates a radio button where only one option can be selected from a group.
+             'name="gender"' groups all radio buttons with the same name, ensuring only one can be chosen.
+             'value="male"' is the data sent if this option is selected.
+             The label wraps the input, so clicking the word "Male" selects the radio button. -->
+
+      <label><input type="radio" name="gender" value="female" /> Female </label>
+      <!-- Another radio button for "Female", part of the same "gender" group. -->
+
+      <label><input type="radio" name="gender" value="others" /> Others </label>
+      <!-- A radio button for "Others", also part of the "gender" group. -->
+
+      <br />
+
+      Skills :
+      <!-- Plain text "Skills :" acts as a heading for the checkboxes below. -->
+
+      <label
+        ><input checked type="checkbox" name="skills" value="html" /> HTML
+      </label>
+      <!-- A checkbox for selecting "HTML".
+             'type="checkbox"' allows multiple selections (unlike radio buttons).
+             'name="skills"' is the key for this field; multiple checkboxes can share this name to send multiple values.
+             'value="html"' is the data sent if this checkbox is selected.
+             'checked' means this checkbox is pre-selected when the page loads. -->
+
+      <label><input type="checkbox" name="skills" value="css" /> CSS </label>
+      <!-- A checkbox for "CSS", part of the same "skills" group. -->
+
+      <label
+        ><input type="checkbox" name="skills" value="javascript" /> Javascript
+      </label>
+      <!-- A checkbox for "Javascript", also part of the "skills" group. -->
+
+      <br />
+
+      <label
+        >Country :
+        <select name="country">
+          <!-- The <select> tag creates a dropdown menu.
+                 'name="country"' is the key for the selected option in the form data. -->
+
+          <option selected disabled>--COUNTRY--</option>
+          <!-- The <option> tag defines an item in the dropdown.
+                 'selected' makes this the default option when the page loads.
+                 'disabled' prevents this option from being submitted (it’s just a placeholder).
+                 The text "--COUNTRY--" is shown in the dropdown initially. -->
+
+          <option value="india">INDIA</option>
+          <!-- An option with the value "india". The text "INDIA" is displayed in the dropdown. -->
+
+          <option value="china">CHINA</option>
+          <!-- An option for "CHINA". -->
+
+          <option value="japan">JAPAN</option>
+          <!-- An option for "JAPAN". -->
+        </select></label
+      >
+      <!-- Closes the <select> tag and the associated label. -->
+
+      <br />
+
+      <button type="submit">submit</button>
+      <!-- A <button> tag creates a clickable button.
+             'type="submit"' triggers the form submission, sending the data to the 'action' destination (mailto in this case).
+             The text "submit" is displayed on the button. -->
+
+      <button type="reset">reset</button>
+      <!-- A button with 'type="reset"' clears all form inputs to their default values.
+             The text "reset" is displayed on the button. -->
+
+      <input type="reset" value="reset" />
+      <!-- An alternative way to create a reset button using an <input> tag.
+             'type="reset"' has the same effect as the reset button above.
+             'value="reset"' sets the text displayed on the button. -->
+
+      <input type="submit" value="submit" />
+      <!-- An alternative way to create a submit button using an <input> tag.
+             'type="submit"' submits the form.
+             'value="submit"' sets the text displayed on the button. -->
+    </form>
+    <!-- Closes the <form> tag. -->
+  </body>
+  <!-- Closes the <body> tag. -->
+</html>
+<!-- Closes the <html> tag, marking the end of the HTML document. -->
