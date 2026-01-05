@@ -57,3 +57,11 @@ body {
 .task-area ul li:last-child {
   border-bottom: none;
 }
+
+.task-area .task-title {
+  width: 60%;
+  text-align: left;
+}
+.task-area .task-status {
+  width: 15%;
+}
