@@ -23,7 +23,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="header"><h1>TO DO LIST</h1></div>
+    <div class="header">
+      <h1>TO DO LIST</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+  <a href="/" class="m-1 btn btn-sm btn-primary">Show All </a>
+  <a href="/pending" class="m-1 btn btn-sm btn-warning">Pending</a>
+  <a href="/completed" class="m-1 btn btn-sm btn-success">Completed</a>
+</div>
+    </div>
     <!-- form area -->
     <div class="form-area">
       <form action="/" method="post">
@@ -52,7 +59,9 @@
         <% items.forEach(item=>{ %>
         <li>
           <span class="task-title"><%= item.title %></span>
-          <span class="task-status badge <%= item.status === "completed" ? "badge-success" : "badge-warning"  %>"><%=  item.status %></span>
+          <span class="task-status badge <%= item.status === "completed" ? "badge-success" : "badge-warning"  %>">
+            <%=  item.status %>
+          </span>
           <a href="/delete/<%= item._id %>" class="btn btn-danger">X</a>
         </li>
         <% }) %>

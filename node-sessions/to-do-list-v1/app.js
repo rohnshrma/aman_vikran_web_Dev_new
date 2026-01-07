@@ -8,6 +8,9 @@ import connectDB from "./config/db.js";
 import { v4 as uuidv4 } from "uuid";
 // Import the Task model (MongoDB collection)
 import Task from "./models/task.js";
+
+import taskRoutes from "./routes/taskRoutes.js";
+
 // Create an Express application instance
 const app = express();
 
@@ -36,86 +39,7 @@ app.set("view engine", "ejs");
 
 /* -------------------- ROUTES -------------------- */
 
-// Define route handling for "/"
-// app.route() allows chaining multiple HTTP methods on the same route
-app
-  .route("/")
-  // Handle GET requests to "/"
-  .get(async (req, res) => {
-    try {
-      // Fetch all tasks from the database
-      const tasks = await Task.find({});
-      // Render the index.ejs template, passing the tasks as 'items'
-      res.render("index", {
-        items: tasks,
-      });
-    } catch (err) {
-      // If an error occurs, log it and redirect to the homepage
-      console.log(err);
-      res.redirect("/");
-    }
-  })
-
-  // Handle POST requests to "/"
-  .post(async (req, res) => {
-    try {
-      // Destructure title and status from the request body
-      const { title, status } = req.body;
-
-      // If the title is too short, redirect without saving
-      if (title.length < 3) {
-        return res.redirect("/");
-      }
-
-      // Create a new Task document
-      const newtask = new Task({
-        title: title,
-        status: status,
-      });
-
-      // Save the new task to the database
-      await newtask.save();
-
-      // Redirect to the homepage after saving
-      res.redirect("/");
-    } catch (err) {
-      // If an error occurs, log it and redirect
-      console.log(err);
-      res.redirect("/");
-    }
-  });
-
-/* -------------------- DELETE ROUTE -------------------- */
-
-// Handle item deletion using a dynamic route parameter (:id)
-app.route("/delete/:id").get(async (req, res) => {
-  try {
-    // Extract the id from the URL parameter
-    const deleteID = req.params.id;
-
-    // Find the task by its ID
-    const task = await Task.findOne({ _id: deleteID });
-
-    // If the task does not exist, log and redirect
-    if (!task) {
-      console.log("Task not found");
-      return res.redirect("/");
-    }
-
-    // Delete the task by its ID
-    await Task.findByIdAndDelete(deleteID);
-
-    // Log the deleted task and redirect
-    console.log("Deleted", task);
-    res.redirect("/");
-  } catch (err) {
-    // If an error occurs, log it and redirect
-    console.log(err);
-    res.redirect("/");
-  }
-
-  // Redirect back to the homepage after deletion
-});
+app.use(taskRoutes);
 
 /* -------------------- SERVER START -------------------- */
 
