@@ -9,7 +9,7 @@ const taskSchema = new mongoose.Schema({
     required: true, // Field is mandatory
     trim: true, // Removes whitespace from both ends
     minlength: 3, // Minimum length of 3 characters
-    unqiue: true, // Should be unique (note: typo, should be 'unique')
+    unique: true,
   },
   // 'status' field: must be a string, can only be 'pending' or 'completed', defaults to 'pending'
   status: {

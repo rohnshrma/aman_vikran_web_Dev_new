@@ -82,3 +82,48 @@ export const DELETE_TASK = async (req, res) => {
 
   // Redirect back to the homepage after deletion
 };
+
+export const GET_TASK_EDIT = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    let task = await Task.findOne({ _id: id });
+
+    if (!task) {
+      console.log("Task not found");
+      return res.redirect("/");
+    }
+
+    res.render("edit", { task });
+  } catch (err) {
+    console.log(err);
+    res.redirect("/");
+  }
+};
+
+export const UPDATE_TASK = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { title, status } = req.body;
+
+    let task = await Task.findOne({ _id: id });
+
+    if (!task) {
+      console.log("Task not found");
+      return res.redirect("/");
+    }
+
+    task.title = title;
+    task.status = status;
+
+    // Save the new task to the database
+    await task.save();
+
+    // Redirect to the homepage after saving
+    res.redirect("/");
+  } catch (err) {
+    // If an error occurs, log it and redirect
+    console.log(err);
+    res.redirect("/");
+  }
+};
