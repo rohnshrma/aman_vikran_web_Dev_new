@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import User from "../models/user.js";
+import bcrypt from "bcryptjs";
+
 export const SHOW_REGISTER = (req, res) => {
   res.render("register");
 };
@@ -18,7 +20,7 @@ export const REGISTER_USER = async (req, res) => {
 
     const user = new User({
       email: username,
-      password,
+      password: await bcrypt.hash(password, 10),
     });
 
     await user.save();
@@ -40,8 +42,8 @@ export const LOGIN_USER = async (req, res) => {
       console.log("User not found");
       res.redirect("/register");
     }
-
-    if (existingUser.password === password) {
+    const isMatch = await bcrypt.compare(password, existingUser.password);
+    if (isMatch) {
       console.log(existingUser);
       res.render("secrets");
     }
