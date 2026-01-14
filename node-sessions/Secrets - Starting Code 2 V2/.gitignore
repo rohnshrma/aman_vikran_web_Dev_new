@@ -1,0 +1,18 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore npm debug log files
+npm-debug.log*
+
+# Ignore yarn lock files
+yarn.lock
+
+# Ignore environment variable files
+.env
+
+# Ignore logs
+logs
+*.log
+
+# Ignore coverage directory
+coverage/
