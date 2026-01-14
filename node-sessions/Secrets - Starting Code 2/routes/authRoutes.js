@@ -1,13 +1,22 @@
 import { Router } from "express";
-import {
-  SHOW_LOGIN,
-  LOGIN_USER,
-  SHOW_REGISTER,
-  REGISTER_USER,
-} from "../controllers/authController.js";
+import passport from "passport";
+import { SHOW_LOGIN, SHOW_REGISTER, REGISTER_USER } from "../controllers/authController.js";
 
 const router = Router();
-router.route("/login").get(SHOW_LOGIN).post(LOGIN_USER);
+
+// Show login form & handle login with Passport Local strategy
+router
+  .route("/login")
+  .get(SHOW_LOGIN)
+  .post(
+    passport.authenticate("local", {
+      successRedirect: "/secrets",
+      failureRedirect: "/auth/login",
+    })
+  );
+
+// Registration routes
 router.route("/register").get(SHOW_REGISTER).post(REGISTER_USER);
 
 export default router;
+

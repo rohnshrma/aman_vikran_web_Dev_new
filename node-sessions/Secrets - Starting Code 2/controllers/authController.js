@@ -1,54 +1,46 @@
 import mongoose from "mongoose";
-import User from "../models/user.js";
 import bcrypt from "bcryptjs";
+import passport from "passport";
+import User from "../models/user.js";
 
 export const SHOW_REGISTER = (req, res) => {
   res.render("register");
 };
+
 export const SHOW_LOGIN = (req, res) => {
   res.render("login");
 };
-export const REGISTER_USER = async (req, res) => {
+
+export const REGISTER_USER = async (req, res, next) => {
   try {
     const { username, password } = req.body;
-    const existingUser = await User.findOne({ email: username });
 
+    const existingUser = await User.findOne({ email: username });
     if (existingUser) {
       console.log("User already exists");
-      res.redirect("/login");
+      return res.redirect("/auth/login");
     }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = new User({
       email: username,
-      password: await bcrypt.hash(password, 10),
+      password: hashedPassword,
     });
 
     await user.save();
-    console.log(user);
+    console.log("New user registered:", user.email);
 
-    res.render("secrets");
+    // Automatically log the user in after successful registration
+    req.login(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect("/secrets");
+    });
   } catch (err) {
     console.log(err);
-    res.redirect("/auth/register");
+    return res.redirect("/auth/register");
   }
 };
-export const LOGIN_USER = async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    console.log(req.body);
-    const existingUser = await User.findOne({ email: username });
 
-    if (!existingUser) {
-      console.log("User not found");
-      res.redirect("/register");
-    }
-    const isMatch = await bcrypt.compare(password, existingUser.password);
-    if (isMatch) {
-      console.log(existingUser);
-      res.render("secrets");
-    }
-  } catch (err) {
-    console.log(err);
-    res.redirect("/auth/login");
-  }
-};
