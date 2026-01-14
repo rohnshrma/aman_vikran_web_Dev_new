@@ -1,46 +1,60 @@
-import passport from "passport";
-import { Strategy as LocalStrategy } from "passport-local";
-import bcrypt from "bcryptjs";
-import User from "../models/user.js";
+// Passport configuration
+// This file wires up the LocalStrategy and tells Passport how to store users in the session.
+
+import passport from "passport"; // Main Passport library
+import { Strategy as LocalStrategy } from "passport-local"; // Username/password strategy
+import bcrypt from "bcryptjs"; // Library to compare hashed passwords
+import User from "../models/user.js"; // Mongoose User model
 
 // Configure Passport Local Strategy and serialization
 export const configurePassport = () => {
-  // Use "username" field from the login form as the username (email)
+  // Tell Passport how to authenticate users with a username + password.
+  // Here "username" is actually the email field from the login form.
   passport.use(
     new LocalStrategy(
       {
+        // Which field from the form should be treated as the username
         usernameField: "username", // matches <input name="username" ...> in login.ejs
       },
+      // Verify callback: runs when a user tries to log in
       async (username, password, done) => {
         try {
+          // Look up a user by email (stored as "username" from the form)
           const user = await User.findOne({ email: username });
 
+          // If no user with that email exists, fail the login
           if (!user) {
             return done(null, false, { message: "Invalid email or password." });
           }
 
+          // Compare the plain password from the form with the hashed one in the DB
           const isMatch = await bcrypt.compare(password, user.password);
           if (!isMatch) {
             return done(null, false, { message: "Invalid email or password." });
           }
 
+          // Success: pass the user object to Passport
           return done(null, user);
         } catch (err) {
+          // On error, pass the error to Passport so it can be handled upstream
           return done(err);
         }
       }
     )
   );
 
-  // Store user id in the session
+  // Store user id in the session cookie
   passport.serializeUser((user, done) => {
+    // Save only the user.id, not the entire object
     done(null, user.id);
   });
 
-  // Retrieve full user from id stored in session
+  // Retrieve full user object from the id stored in the session
   passport.deserializeUser(async (id, done) => {
     try {
+      // Find the user by its unique id in MongoDB
       const user = await User.findById(id);
+      // Attach the user to req.user
       done(null, user);
     } catch (err) {
       done(err);
@@ -48,5 +62,6 @@ export const configurePassport = () => {
   });
 };
 
+// Default export (same function) for convenience
 export default configurePassport;
 

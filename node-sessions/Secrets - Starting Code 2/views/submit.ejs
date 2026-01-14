@@ -1,20 +1,27 @@
-<%- include('partials/header') %>
+<%- include('partials/header') %> <!-- Shared header / layout -->
 
 <div class="container">
   <div class="jumbotron centered">
+    <!-- Icon and title to match the rest of the app -->
     <i class="fas fa-key fa-6x"></i>
     <h1 class="display-3">Secrets</h1>
     <p class="secret-text">Don't keep your secrets, share them anonymously!</p>
 
+    <!-- Form to submit a new secret -->
+    <!-- Handled by POST /submit in app.js (protected by middleware) -->
     <form action="/submit" method="POST">
-
       <div class="form-group">
-        <input type="text" class="form-control text-center" name="secret" placeholder="What's your secret?">
+        <!-- Single text input for the secret content -->
+        <input
+          type="text"
+          class="form-control text-center"
+          name="secret"
+          placeholder="What's your secret?"
+        >
       </div>
       <button type="submit" class="btn btn-dark">Submit</button>
     </form>
-
-
   </div>
 </div>
-<%- include('partials/footer') %>
+
+<%- include('partials/footer') %> <!-- Shared footer / closing tags -->

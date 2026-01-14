@@ -1,13 +1,17 @@
+/* Global page styles */
 
 body {
+  /* Light gray background for the whole app */
   background-color: #E8ECEF;
 }
 
+/* Utility class for vertically and horizontally centered content */
 .centered {
-    padding-top: 200px;
-    text-align: center;
+  padding-top: 200px;
+  text-align: center;
 }
 
+/* Styling for the secret text block */
 .secret-text {
   text-align: center;
   font-size: 2rem;

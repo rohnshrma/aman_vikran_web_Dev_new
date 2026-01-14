@@ -1,16 +1,22 @@
-<%- include('partials/header') %>
+<%- include('partials/header') %> <!-- Reuse common HTML <head> + navbar -->
 
+<!-- Landing / home page -->
 <div class="jumbotron centered">
   <div class="container">
+    <!-- Big key icon from Font Awesome -->
     <i class="fas fa-key fa-6x"></i>
+    <!-- Main title -->
     <h1 class="display-3">Secrets</h1>
+    <!-- Short description of the app -->
     <p class="lead">Don't keep your secrets, share them anonymously!</p>
     <hr />
-    <a class="btn btn-light btn-lg" href="/auth/register" role="button"
-      >Register</a
-    >
+    <!-- Button for new users to go to the registration page -->
+    <a class="btn btn-light btn-lg" href="/auth/register" role="button">
+      Register
+    </a>
+    <!-- Button for existing users to go to the login page -->
     <a class="btn btn-dark btn-lg" href="/auth/login" role="button">Login</a>
   </div>
 </div>
 
-<%- include('partials/footer') %>
+<%- include('partials/footer') %> <!-- Reuse common closing HTML + scripts -->

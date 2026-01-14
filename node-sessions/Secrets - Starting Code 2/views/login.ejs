@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<%- include('partials/header') %> <!-- Shared header / Bootstrap / CSS links -->
 
 <div class="container mt-5">
   <h1>Login</h1>
@@ -7,14 +7,17 @@
     <div class="col-sm-8">
       <div class="card">
         <div class="card-body">
-          <!-- Makes POST request to /login route -->
+          <!-- Login form -->
+          <!-- Sends a POST request to /auth/login which Passport handles -->
           <form action="/auth/login" method="POST">
             <div class="form-group">
               <label for="email">Email</label>
+              <!-- "name" must be "username" so Passport's LocalStrategy can read it -->
               <input type="email" class="form-control" name="username" />
             </div>
             <div class="form-group">
               <label for="password">Password</label>
+              <!-- "name" must be "password" so Passport's LocalStrategy can read it -->
               <input type="password" class="form-control" name="password" />
             </div>
             <button type="submit" class="btn btn-dark">Login</button>
@@ -23,7 +26,9 @@
       </div>
     </div>
 
-    <!-- <div class="col-sm-4">
+    <!-- Optional section for social login (currently commented out) -->
+    <!--
+    <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
           <a class="btn btn-block" href="/auth/google" role="button">
@@ -32,8 +37,9 @@
           </a>
         </div>
       </div>
-    </div> -->
+    </div>
+    -->
   </div>
 </div>
 
-<%- include('partials/footer') %>
+<%- include('partials/footer') %> <!-- Shared closing HTML / scripts -->
