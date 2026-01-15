@@ -32,6 +32,27 @@ router
 // POST -> call REGISTER_USER to create a new account
 router.route("/register").get(SHOW_REGISTER).post(REGISTER_USER);
 
+// Google OAuth routes
+// /auth/google -> initiate Google OAuth flow
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  })
+);
+
+// /auth/google/secrets -> Google OAuth callback
+router.get(
+  "/google/secrets",
+  passport.authenticate("google", {
+    failureRedirect: "/auth/login",
+  }),
+  (req, res) => {
+    // Successful authentication, redirect to secrets page
+    res.redirect("/secrets");
+  }
+);
+
 // Export the router so app.js can mount it under /auth
 export default router;
 

@@ -1,8 +1,9 @@
 // Passport configuration
-// This file wires up the LocalStrategy and tells Passport how to store users in the session.
+// This file wires up the LocalStrategy, GoogleStrategy and tells Passport how to store users in the session.
 
 import passport from "passport"; // Main Passport library
 import { Strategy as LocalStrategy } from "passport-local"; // Username/password strategy
+import { Strategy as GoogleStrategy } from "passport-google-oauth20"; // Google OAuth 2.0 strategy
 import bcrypt from "bcryptjs"; // Library to compare hashed passwords
 import User from "../models/user.js"; // Mongoose User model
 
@@ -27,6 +28,11 @@ export const configurePassport = () => {
             return done(null, false, { message: "Invalid email or password." });
           }
 
+          // If user doesn't have a password (Google OAuth user), they can't use local login
+          if (!user.password) {
+            return done(null, false, { message: "This account uses Google sign-in. Please use Google to log in." });
+          }
+
           // Compare the plain password from the form with the hashed one in the DB
           const isMatch = await bcrypt.compare(password, user.password);
           if (!isMatch) {
@@ -37,6 +43,49 @@ export const configurePassport = () => {
           return done(null, user);
         } catch (err) {
           // On error, pass the error to Passport so it can be handled upstream
+          return done(err);
+        }
+      }
+    )
+  );
+
+  // Configure Google OAuth 2.0 Strategy
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: "/auth/google/secrets",
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          // Check if user already exists with this Google ID
+          let user = await User.findOne({ googleId: profile.id });
+
+          if (user) {
+            // User exists, return it
+            return done(null, user);
+          } else {
+            // Check if user exists with same email but different auth method
+            user = await User.findOne({ email: profile.emails[0].value });
+
+            if (user) {
+              // User exists with email but no Google ID, add Google ID
+              user.googleId = profile.id;
+              await user.save();
+              return done(null, user);
+            } else {
+              // New user, create account
+              user = new User({
+                email: profile.emails[0].value,
+                googleId: profile.id,
+                // Password is optional for Google OAuth users
+              });
+              await user.save();
+              return done(null, user);
+            }
+          }
+        } catch (err) {
           return done(err);
         }
       }
