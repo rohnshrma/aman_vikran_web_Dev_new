@@ -32,27 +32,18 @@ router
 // POST -> call REGISTER_USER to create a new account
 router.route("/register").get(SHOW_REGISTER).post(REGISTER_USER);
 
-// Google OAuth routes
-// GET /auth/google -> initiate Google OAuth authentication
-router.get(
-  "/google",
+router.route("/google").get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
   })
 );
 
-// GET /auth/google/secrets -> Google OAuth callback
-router.get(
-  "/google/secrets",
+router.route("/google/callback").get(
   passport.authenticate("google", {
+    successRedirect: "/secrets",
     failureRedirect: "/auth/login",
-  }),
-  (req, res) => {
-    // Successful authentication, redirect to secrets page
-    res.redirect("/secrets");
-  }
+  })
 );
 
 // Export the router so app.js can mount it under /auth
 export default router;
-
