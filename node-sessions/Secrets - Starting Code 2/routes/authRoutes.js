@@ -33,7 +33,7 @@ router
 router.route("/register").get(SHOW_REGISTER).post(REGISTER_USER);
 
 // Google OAuth routes
-// /auth/google -> initiate Google OAuth flow
+// GET /auth/google -> initiate Google OAuth authentication
 router.get(
   "/google",
   passport.authenticate("google", {
@@ -41,7 +41,7 @@ router.get(
   })
 );
 
-// /auth/google/secrets -> Google OAuth callback
+// GET /auth/google/secrets -> Google OAuth callback
 router.get(
   "/google/secrets",
   passport.authenticate("google", {

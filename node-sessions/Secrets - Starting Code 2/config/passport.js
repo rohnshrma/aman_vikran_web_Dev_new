@@ -1,5 +1,5 @@
 // Passport configuration
-// This file wires up the LocalStrategy, GoogleStrategy and tells Passport how to store users in the session.
+// This file wires up the LocalStrategy and tells Passport how to store users in the session.
 
 import passport from "passport"; // Main Passport library
 import { Strategy as LocalStrategy } from "passport-local"; // Username/password strategy
@@ -28,9 +28,9 @@ export const configurePassport = () => {
             return done(null, false, { message: "Invalid email or password." });
           }
 
-          // If user doesn't have a password (Google OAuth user), they can't use local login
+          // If user doesn't have a password (signed up with Google OAuth), fail login
           if (!user.password) {
-            return done(null, false, { message: "This account uses Google sign-in. Please use Google to log in." });
+            return done(null, false, { message: "Invalid email or password." });
           }
 
           // Compare the plain password from the form with the hashed one in the DB
@@ -63,14 +63,14 @@ export const configurePassport = () => {
           let user = await User.findOne({ googleId: profile.id });
 
           if (user) {
-            // User exists, return it
+            // User exists, return them
             return done(null, user);
           } else {
-            // Check if user exists with same email but different auth method
+            // Check if user exists with the same email (from local registration)
             user = await User.findOne({ email: profile.emails[0].value });
 
             if (user) {
-              // User exists with email but no Google ID, add Google ID
+              // User exists with local account, link Google account
               user.googleId = profile.id;
               await user.save();
               return done(null, user);
@@ -79,7 +79,7 @@ export const configurePassport = () => {
               user = new User({
                 email: profile.emails[0].value,
                 googleId: profile.id,
-                // Password is optional for Google OAuth users
+                // No password for Google OAuth users
               });
               await user.save();
               return done(null, user);

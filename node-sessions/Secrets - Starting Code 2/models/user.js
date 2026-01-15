@@ -8,10 +8,10 @@ const userSchema = new mongoose.Schema({
   // Email is used as the unique identifier for login (like username)
   email: { type: String, required: true, minlength: 8, unique: true },
   // Password will store a bcrypt-hashed password, not the plain text
-  // Optional for Google OAuth users who don't have passwords
-  password: { type: String, required: false, minlength: 8 },
-  // Google ID for OAuth users
-  googleId: { type: String, required: false },
+  // Made optional for Google OAuth users who don't have a password
+  password: { type: String, minlength: 8 },
+  // Google OAuth ID for users who sign in with Google
+  googleId: { type: String, sparse: true },
 });
 
 // Create a Mongoose model named "user" based on userSchema
