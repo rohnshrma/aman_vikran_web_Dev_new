@@ -1,0 +1,52 @@
+<%- include('partials/header', { title: 'Login - Blog App' }) %>
+
+<main>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body p-5">
+                    <h1 class="display-5 mb-4 text-center">Login</h1>
+                    
+                    <form action="/login" method="POST">
+                        <div class="mb-3">
+                            <label for="email">
+                                <i class="fas fa-envelope mr-2"></i>Email
+                            </label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password">
+                                <i class="fas fa-lock mr-2"></i>Password
+                            </label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Login
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="text-center">
+                        <p class="mb-3">Or login with:</p>
+                        <a href="/auth/google" class="btn btn-outline-danger btn-lg">
+                            <i class="fab fa-google mr-2"></i>Sign in with Google
+                        </a>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p>Don't have an account? <a href="/register">Register here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<%- include('partials/footer') %>
