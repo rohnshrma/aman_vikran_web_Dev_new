@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true, minlength: 3, unique: true },
+    title: { type: String, required: true, minlength: 3, trim: true },
     status: {
       type: String,
       enum: ["pending", "completed"],
@@ -12,6 +12,7 @@ const taskSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
       required: true,
+      index: true,
     },
   },
   { timestamps: true }
