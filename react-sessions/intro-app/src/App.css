@@ -1,0 +1,18 @@
+/*
+  Universal selector (*): targets every element on the page.
+  This creates a clean starting point so spacing is predictable.
+*/
+* {
+  /* Remove default browser spacing around elements. */
+  padding: 0;
+  margin: 0;
+
+  /* Include padding + border inside element width/height calculations. */
+  box-sizing: border-box;
+}
+
+/* Style the body element (the full page background). */
+body {
+  /* Sets a light purple background color across the entire app. */
+  background-color: thistle;
+}
