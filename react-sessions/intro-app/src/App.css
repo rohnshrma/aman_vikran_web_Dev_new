@@ -11,8 +11,9 @@
   box-sizing: border-box;
 }
 
-/* Style the body element (the full page background). */
-body {
-  /* Sets a light purple background color across the entire app. */
-  background-color: thistle;
+/* `.app` matches the element with `className="app"` in App.jsx. */
+.app {
+  /* `100vh` means 100% of the viewport height. */
+  /* This makes the app at least as tall as the browser window. */
+  min-height: 100vh;
 }
