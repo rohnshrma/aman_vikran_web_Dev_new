@@ -68,8 +68,8 @@ function App() {
         <h1 className="hero-title">Simple To-Do List</h1>
 
         <p className="hero-copy">
-          Same basic idea as your original app: type a task, add it to the
-          list, and remove it when you are done.
+          Same basic idea as your original app: type a task, add it to the list,
+          and remove it when you are done.
         </p>
 
         <form onSubmit={submitHandler} className="task-form">
