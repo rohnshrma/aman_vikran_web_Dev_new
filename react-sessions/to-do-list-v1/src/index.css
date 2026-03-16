@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap");
+
+:root {
+  /* CSS custom properties work like reusable variables for colors and fonts. */
+  --page-bg: #fff7f1;
+  --panel-bg: rgba(255, 255, 255, 0.72);
+  --text-main: #1b1f3b;
+  --muted-text: #5f6985;
+  --accent: #ff6b35;
+  --accent-deep: #1f3c88;
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(255, 107, 53, 0.2), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(31, 60, 136, 0.18), transparent 30%),
+    linear-gradient(135deg, #fff7f1 0%, #fffdf8 46%, #f1f5ff 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text-main);
+  background: transparent;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+#root {
+  /* React mounts the whole application inside this single element. */
+  min-height: 100vh;
+}

@@ -1,0 +1,198 @@
+.app-shell {
+  /* This is the full-page wrapper that holds the background decoration. */
+  position: relative;
+  min-height: 100vh;
+  padding: 48px 20px;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+.orb-one {
+  top: 60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.34), transparent 70%);
+}
+
+.orb-two {
+  bottom: 30px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(31, 60, 136, 0.24), transparent 70%);
+}
+
+.todo-panel {
+  /* The main glass-style card that contains the whole app UI. */
+  position: relative;
+  z-index: 1;
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 28px 80px rgba(18, 25, 56, 0.18);
+}
+
+.hero-title {
+  margin: 0 0 12px;
+  text-align: center;
+  line-height: 0.95;
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  color: var(--text-main);
+}
+
+.hero-copy {
+  margin: 0 0 28px;
+  text-align: center;
+  color: var(--muted-text);
+  font-size: 1rem;
+}
+
+.task-form {
+  /* Two-column layout on large screens: input on the left, button on the right. */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.task-input {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid rgba(27, 31, 59, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 18px;
+  font-size: 1rem;
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.12);
+}
+
+.add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 170px;
+  min-height: 56px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ff6b35, #ff8a5b);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(255, 107, 53, 0.28);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.task-item {
+  /* Each task is a flexible row so text and delete button can sit apart cleanly. */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid rgba(27, 31, 59, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(26, 35, 72, 0.1);
+}
+
+.task-name {
+  word-break: break-word;
+  font-size: 1.02rem;
+}
+
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.delete-button:hover {
+  background: rgba(239, 68, 68, 0.16);
+  transform: translateY(-1px);
+}
+
+.empty-state {
+  margin: 0;
+  padding: 26px 20px;
+  text-align: center;
+  border: 1px dashed rgba(27, 31, 59, 0.18);
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+  color: var(--muted-text);
+}
+
+@media (max-width: 900px) {
+  .todo-panel {
+    padding: 24px;
+  }
+
+  .task-form {
+    /* On smaller screens we stack sections vertically for better readability. */
+    grid-template-columns: 1fr;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 24px 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 10vw, 3.6rem) !important;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
