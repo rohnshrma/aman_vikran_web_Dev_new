@@ -16,6 +16,7 @@ import Counter from "./Components/Counter";
 
 // Import the Timer component that is currently being rendered on screen.
 import Timer from "./Components/Timer";
+import Form from "./Components/Form";
 
 // `App` is a functional React component.
 // Component names start with a capital letter so React treats them as components.
@@ -48,12 +49,14 @@ const App = () => {
     // The outer `div` acts as the wrapper for the whole app UI.
     // `className` is used instead of `class` in JSX.
     // `style={properties}` applies the JavaScript style object above.
-    <div className="app" style={properties}>
+    <div className="app p-5" style={properties}>
       {/* This button switches the theme when clicked. */}
       <button
         // Template literals let us build a class name dynamically.
         // Bootstrap uses `btn-dark` and `btn-light` for button colors.
-        className={`btn btn-${theme === "light" ? "dark" : "light"}`}
+        className={`theme-toggler btn btn-${
+          theme === "light" ? "dark" : "light"
+        }`}
         // `onClick` attaches a click event handler in React.
         onClick={themeHandler}
       >
@@ -90,7 +93,9 @@ const App = () => {
       {/* <Counter /> */}
 
       {/* Render the Timer component so it appears on the page. */}
-      <Timer />
+      {/* <Timer /> */}
+
+      <Form />
     </div>
   );
 };

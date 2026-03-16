@@ -17,3 +17,9 @@
   /* This makes the app at least as tall as the browser window. */
   min-height: 100vh;
 }
+
+.theme-toggler {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
