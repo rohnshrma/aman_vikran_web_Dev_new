@@ -1,3 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -81,9 +93,13 @@
 }
 
 .expense-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .expense-item {
@@ -91,6 +107,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  width: 100%;
   padding: 16px 18px;
   border: 1px solid #e2e8f0;
   border-radius: 18px;
@@ -102,6 +119,8 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  flex: 1;
+  min-width: 0;
 }
 
 .expense-name {
@@ -126,6 +145,7 @@
   border: none;
   border-radius: 12px;
   padding: 10px 16px;
+  flex-shrink: 0;
   background: linear-gradient(135deg, #fb7185, #e11d48);
   color: #ffffff;
   font-size: 0.95rem;
