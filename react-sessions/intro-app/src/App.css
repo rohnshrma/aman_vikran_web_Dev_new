@@ -1,20 +1,10 @@
-/*
-  Universal selector (*): targets every element on the page.
-  This creates a clean starting point so spacing is predictable.
-*/
 * {
-  /* Remove default browser spacing around elements. */
   padding: 0;
   margin: 0;
-
-  /* Include padding + border inside element width/height calculations. */
   box-sizing: border-box;
 }
 
-/* `.app` matches the element with `className="app"` in App.jsx. */
 .app {
-  /* `100vh` means 100% of the viewport height. */
-  /* This makes the app at least as tall as the browser window. */
   min-height: 100vh;
 }
 
