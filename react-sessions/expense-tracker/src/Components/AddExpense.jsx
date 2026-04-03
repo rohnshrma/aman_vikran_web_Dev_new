@@ -1,50 +1,57 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+const initialState = {
+  name: "",
+  amount: "",
+};
+
+const formReducer = (state, action) => {
+  if (action.type === "NAMECHANGE") {
+    return {
+      name: action.payload,
+      amount: state.amount,
+    };
+  } else if (action.type === "AMOUNTCHANGE") {
+    return {
+      name: state.name,
+      amount: action.payload,
+    };
+  } else if (action.type === "RESET") {
+    return initialState;
+  } else {
+    return state;
+  }
+};
+
 const AddExpense = ({ onAdd }) => {
-  const [expense, setExpense] = useState({
-    name: "",
-    amount: "",
-  });
+  const [state, dispatch] = useReducer(formReducer, initialState);
 
   const nameChangeHandler = (e) => {
     const inputText = e.target.value;
-    setExpense((prevExpenses) => {
-      return {
-        name: inputText,
-        amount: prevExpenses.amount,
-      };
-    });
+    dispatch({ type: "NAMECHANGE", payload: inputText });
   };
   const amountChangeHandler = (e) => {
     const inputText = e.target.value;
-    setExpense((prevExpenses) => {
-      return {
-        amount: inputText,
-        name: prevExpenses.name,
-      };
-    });
+    dispatch({ type: "AMOUNTCHANGE", payload: inputText });
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const cleanName = expense.name.trim();
-    if (cleanName === "" || Number(expense.amount) <= 0) {
+    const cleanName = state.name.trim();
+    if (cleanName === "" || Number(state.amount) <= 0) {
       return;
     }
 
     onAdd({
-      ...expense,
+      ...state,
       name: cleanName,
-      amount: Number(expense.amount),
+      amount: Number(state.amount),
       id: uuidv4(),
     });
 
-    setExpense({
-      name: "",
-      amount: "",
-    });
+    dispatch({ type: "RESET" });
   };
 
   return (
@@ -55,7 +62,7 @@ const AddExpense = ({ onAdd }) => {
         onChange={nameChangeHandler}
         name="name"
         placeholder="Expense Name"
-        value={expense.name}
+        value={state.name}
       />
       <input
         className="expense-input"
@@ -63,7 +70,7 @@ const AddExpense = ({ onAdd }) => {
         name="amount"
         onChange={amountChangeHandler}
         placeholder="Expense Amount"
-        value={expense.amount}
+        value={state.amount}
       />
       <button className="expense-button" type="submit">
         Add Expense

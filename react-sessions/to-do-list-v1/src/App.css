@@ -57,6 +57,19 @@
   font-size: 1rem;
 }
 
+.sr-only {
+  /* Keeps text available to screen readers while hiding it visually. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .task-form {
   /* Two-column layout on large screens: input on the left, button on the right. */
   display: grid;

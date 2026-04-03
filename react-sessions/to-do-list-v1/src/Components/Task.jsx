@@ -4,16 +4,21 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const Task = ({ task, onDelete }) => {
   return (
-    <li key={task.id} className="task-item">
-      {/* We show the task text inside a simple span element. */}
-      <span className="task-name">{task.name}</span>
+    <li className="task-item">
+      {/* This component receives one full task object as a prop from `App`.
+          We then display the title and description on the screen. */}
+      <span className="task-name">{task.title}</span>
+      <span className="task-name">{task.description}</span>
 
       <button
         type="button"
         className="delete-button"
+        // We pass the task id back to the parent when the delete button is clicked.
+        // The parent (`App`) owns the list, so the parent is responsible for removing it.
         onClick={() => onDelete(task.id)}
       >
-        {/* This button removes only the clicked task by sending its id. */}
+        {/* The trash icon is only visual. The actual delete behavior comes from
+            the `onClick` function above. */}
         <FontAwesomeIcon icon={faTrashCan} />
         <span>Delete</span>
       </button>
