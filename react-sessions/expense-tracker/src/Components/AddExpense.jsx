@@ -7,15 +7,12 @@ const initialState = {
 };
 
 const formReducer = (state, action) => {
-  if (action.type === "NAMECHANGE") {
+  console.log(action);
+
+  if (action.type === "name" || action.type === "amount") {
     return {
-      name: action.payload,
-      amount: state.amount,
-    };
-  } else if (action.type === "AMOUNTCHANGE") {
-    return {
-      name: state.name,
-      amount: action.payload,
+      ...state,
+      [action.type]: action.payload,
     };
   } else if (action.type === "RESET") {
     return initialState;
@@ -27,13 +24,9 @@ const formReducer = (state, action) => {
 const AddExpense = ({ onAdd }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
 
-  const nameChangeHandler = (e) => {
-    const inputText = e.target.value;
-    dispatch({ type: "NAMECHANGE", payload: inputText });
-  };
-  const amountChangeHandler = (e) => {
-    const inputText = e.target.value;
-    dispatch({ type: "AMOUNTCHANGE", payload: inputText });
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    dispatch({ type: `${name}`, payload: value });
   };
 
   const submitHandler = (e) => {
@@ -59,7 +52,7 @@ const AddExpense = ({ onAdd }) => {
       <input
         className="expense-input"
         type="text"
-        onChange={nameChangeHandler}
+        onChange={changeHandler}
         name="name"
         placeholder="Expense Name"
         value={state.name}
@@ -68,7 +61,7 @@ const AddExpense = ({ onAdd }) => {
         className="expense-input"
         type="number"
         name="amount"
-        onChange={amountChangeHandler}
+        onChange={changeHandler}
         placeholder="Expense Amount"
         value={state.amount}
       />
