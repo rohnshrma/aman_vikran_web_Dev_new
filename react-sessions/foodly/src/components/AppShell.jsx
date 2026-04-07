@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function AppShell({ children }) {
   return (
     <div className="app-shell">
@@ -8,11 +10,11 @@ export function AppShell({ children }) {
         </div>
 
         <nav className="topbar-links" aria-label="Preview sections">
-          <a href="#dishes">All Dishes</a>
-          <a href="#dish-details">Dish Page</a>
-          <a href="#add-dish">Add Dish</a>
-          <a href="#admin">Admin</a>
-          <a href="#cart">Cart</a>
+          <Link to="/dishes">All Dishes</Link>
+          <Link to="/dish">Dish Page</Link>
+          <Link to="/add-dish">Add Dish</Link>
+          <Link to="/admin/manage">Admin</Link>
+          <Link to="/cart">Cart</Link>
         </nav>
       </header>
 
