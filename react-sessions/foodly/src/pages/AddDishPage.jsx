@@ -1,7 +1,7 @@
-import { DishForm } from '../components/DishForm';
-import { SectionHeading } from '../components/SectionHeading';
+import { DishForm } from "../components/DishForm";
+import { SectionHeading } from "../components/SectionHeading";
 
-export function AddDishPage() {
+export function AddDishPage({ onAdd }) {
   return (
     <section id="add-dish" className="page-section">
       <SectionHeading
@@ -11,6 +11,7 @@ export function AddDishPage() {
       />
 
       <DishForm
+        onAdd={onAdd}
         title="Create Dish"
         subtitle="Use this layout for adding a new dish to the menu."
         submitLabel="Add Dish"

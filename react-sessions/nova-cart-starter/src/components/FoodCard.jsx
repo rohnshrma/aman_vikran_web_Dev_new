@@ -4,16 +4,15 @@ export function FoodCard({
   id,
   name,
   category,
-  veg,
+  brand,
   availability,
   price,
   description,
-  badge = "Popular",
+  badge = "New Arrival",
 }) {
   const navigate = useNavigate();
-  const dishType = veg ? "Veg" : "Non-Veg";
   const statusClass =
-    availability === "Available" ? "status-available" : "status-unavailable";
+    availability === "In Stock" ? "status-available" : "status-unavailable";
 
   return (
     <article className="food-card">
@@ -24,19 +23,19 @@ export function FoodCard({
       <div className="food-card-body">
         <div className="food-card-topline">
           <span className="badge">{badge}</span>
-          <strong>{price}</strong>
+          <strong>${price}</strong>
         </div>
 
         <h3>{name}</h3>
         <div className="food-card-tags">
-          <span className="panel-tag">{dishType}</span>
+          <span className="panel-tag">{brand}</span>
           <span className={`panel-tag ${statusClass}`}>{availability}</span>
         </div>
         <p>{description}</p>
 
         <div className="food-card-actions">
-          <button type="button" onClick={() => navigate(`/dish/${id}`)}>
-            View Details
+          <button type="button" onClick={() => navigate(`/product/${id}`)}>
+            View Product
           </button>
           <button type="button" className="secondary-button">
             Add to Cart

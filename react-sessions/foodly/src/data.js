@@ -8,6 +8,8 @@ const indianDishes = [
     category: "Main Course",
     veg: true,
     img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+    preparationTime: "25 mins",
+    availability: "Available",
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ const indianDishes = [
     category: "Main Course",
     veg: false,
     img: "https://images.unsplash.com/photo-1600628422019-6c3d1b6c8c8e",
+    preparationTime: "35 mins",
+    availability: "Available",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ const indianDishes = [
     category: "Breakfast",
     veg: true,
     img: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38",
+    preparationTime: "20 mins",
+    availability: "Available",
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ const indianDishes = [
     category: "Main Course",
     veg: false,
     img: "https://images.unsplash.com/photo-1504674900247-ec6b0b1b798e",
+    preparationTime: "30 mins",
+    availability: "Available",
   },
   {
     id: 5,
@@ -47,6 +55,8 @@ const indianDishes = [
     category: "Snack",
     veg: true,
     img: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c",
+    preparationTime: "15 mins",
+    availability: "Out of Stock",
   },
   {
     id: 6,
@@ -56,6 +66,8 @@ const indianDishes = [
     category: "Main Course",
     veg: false,
     img: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc",
+    preparationTime: "28 mins",
+    availability: "Available",
   },
   {
     id: 7,
@@ -65,6 +77,8 @@ const indianDishes = [
     category: "Dessert",
     veg: true,
     img: "https://images.unsplash.com/photo-1603079841834-9b6b6e5b6e5e",
+    preparationTime: "10 mins",
+    availability: "Available",
   },
 ];
 

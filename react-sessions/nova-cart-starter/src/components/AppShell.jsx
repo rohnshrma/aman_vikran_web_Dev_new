@@ -5,15 +5,14 @@ export function AppShell({ children }) {
     <div className="app-shell">
       <header className="topbar">
         <div>
-          <p className="brand-kicker">Foodly</p>
-          <h1 className="brand-title">Starter Classroom UI</h1>
+          <p className="brand-kicker">NovaCart</p>
+          <h1 className="brand-title">E-Commerce Starter Kit</h1>
         </div>
 
         <nav className="topbar-links" aria-label="Preview sections">
-          <Link to="/dishes">All Dishes</Link>
-          {/* <Link to="/dish">Dish Page</Link> */}
-          <Link to="/add-dish">Add Dish</Link>
-          <Link to="/admin/manage">Admin</Link>
+          <Link to="/products">Products</Link>
+          <Link to="/add-product">Add Product</Link>
+          <Link to="/admin/products">Admin</Link>
           <Link to="/cart">Cart</Link>
         </nav>
       </header>

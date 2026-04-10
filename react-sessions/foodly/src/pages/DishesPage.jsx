@@ -17,10 +17,13 @@ export function DishesPage(props) {
             <FoodCard
               name={dishObj.name}
               category={dishObj.category}
+              veg={dishObj.veg}
+              availability={dishObj.availability}
               price={`₹ ${dishObj.price}`}
               description={dishObj.description}
               badge="Chef Pick"
               key={dishObj.id}
+              id={dishObj.id}
             />
           );
         })}

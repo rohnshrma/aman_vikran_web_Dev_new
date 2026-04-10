@@ -1,9 +1,10 @@
 :root {
-  font-family: "DM Sans", "Segoe UI", sans-serif;
-  color: #171717;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: #132238;
   background:
-    radial-gradient(circle at top left, rgba(238, 245, 233, 0.95), transparent 35%),
-    linear-gradient(180deg, #f8f6f1 0%, #f4f1ea 100%);
+    radial-gradient(circle at top left, rgba(159, 225, 211, 0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 184, 146, 0.2), transparent 24%),
+    linear-gradient(180deg, #f6fbfc 0%, #eef4f7 100%);
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
@@ -11,6 +12,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-strong: #ffffff;
+  --surface-soft: #f3f7f8;
+  --border: rgba(19, 34, 56, 0.1);
+  --text-main: #132238;
+  --text-soft: #5d6b7c;
+  --accent: #1f7a8c;
+  --accent-soft: #dff3f6;
+  --accent-warm: #ff8e72;
+  --success-bg: #e2f7ee;
+  --success-text: #1e7a55;
+  --danger-bg: #ffe5df;
+  --danger-text: #b14b39;
+  --shadow: 0 18px 60px rgba(19, 34, 56, 0.08);
 }
 
 * {
@@ -36,18 +51,20 @@ textarea {
 button {
   border: 0;
   border-radius: 999px;
-  padding: 0.9rem 1.4rem;
-  background: #171717;
+  padding: 0.92rem 1.4rem;
+  background: var(--text-main);
   color: #fff;
   cursor: pointer;
   transition:
     transform 180ms ease,
     opacity 180ms ease,
-    background 180ms ease;
+    background 180ms ease,
+    box-shadow 180ms ease;
 }
 
 button:hover {
   transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(19, 34, 56, 0.12);
 }
 
 a {
@@ -68,13 +85,14 @@ a {
   gap: 1rem;
   padding: 1rem 1.2rem;
   margin-bottom: 1.5rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(23, 23, 23, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 28px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 1rem;
   z-index: 10;
+  box-shadow: var(--shadow);
 }
 
 .brand-kicker,
@@ -83,15 +101,15 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.72rem;
-  color: #6d7a65;
+  color: var(--accent);
 }
 
 .brand-title,
 .section-heading h2,
 .hero-card h1 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: -0.03em;
+  font-family: "Fraunces", Georgia, serif;
+  letter-spacing: -0.04em;
 }
 
 .brand-title {
@@ -105,11 +123,17 @@ a {
 }
 
 .topbar-links a {
-  padding: 0.55rem 0.9rem;
+  padding: 0.6rem 0.95rem;
   border-radius: 999px;
-  background: #f1ede5;
-  color: #3c4138;
+  background: var(--surface-soft);
+  color: var(--text-main);
   font-size: 0.92rem;
+  border: 1px solid transparent;
+  transition: border-color 180ms ease;
+}
+
+.topbar-links a:hover {
+  border-color: rgba(31, 122, 140, 0.18);
 }
 
 .page-stack {
@@ -120,21 +144,21 @@ a {
 .hero-card,
 .panel,
 .page-section {
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(23, 23, 23, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 32px;
-  box-shadow: 0 18px 60px rgba(29, 33, 24, 0.07);
+  box-shadow: var(--shadow);
 }
 
 .hero-card {
   display: grid;
-  grid-template-columns: 1.4fr 0.9fr;
+  grid-template-columns: 1.35fr 0.95fr;
   gap: 1.25rem;
   padding: 2rem;
 }
 
 .hero-card h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
   max-width: 11ch;
 }
 
@@ -143,14 +167,45 @@ a {
 .panel-head p,
 .food-card p,
 .details-copy,
-.cart-item p {
-  color: #5b6056;
+.cart-item p,
+.table-subcopy {
+  color: var(--text-soft);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hero-metrics article,
+.details-meta div,
+.cart-item,
+.cart-footer {
+  padding: 1rem;
+  border-radius: 20px;
+  background: var(--surface-soft);
+}
+
+.hero-metrics strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1.05rem;
+}
+
+.hero-metrics span {
+  color: var(--text-soft);
+  font-size: 0.92rem;
 }
 
 .hero-note {
-  padding: 1.4rem;
-  background: #f2efe7;
-  border-radius: 24px;
+  padding: 1.5rem;
+  background:
+    linear-gradient(160deg, rgba(31, 122, 140, 0.08), rgba(255, 142, 114, 0.12)),
+    var(--surface-strong);
+  border-radius: 26px;
+  border: 1px solid rgba(31, 122, 140, 0.08);
 }
 
 .hero-note h2 {
@@ -172,7 +227,7 @@ a {
 }
 
 .section-heading h2 {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
   margin-bottom: 0.45rem;
 }
 
@@ -192,19 +247,22 @@ a {
 
 .food-card {
   overflow: hidden;
-  background: #fcfbf8;
+  background: var(--surface-strong);
   border-radius: 28px;
-  border: 1px solid rgba(23, 23, 23, 0.07);
+  border: 1px solid rgba(19, 34, 56, 0.08);
 }
 
 .food-card-image,
 .details-image {
   display: grid;
   place-items: center;
-  color: #687160;
+  color: var(--accent);
   background:
-    linear-gradient(135deg, rgba(201, 217, 186, 0.75), rgba(244, 241, 234, 0.6)),
-    #edf0e7;
+    linear-gradient(135deg, rgba(223, 243, 246, 0.95), rgba(255, 232, 225, 0.75)),
+    #edf6f8;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .food-card-image {
@@ -230,10 +288,10 @@ a {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 0.3rem 0.7rem;
+  padding: 0.32rem 0.72rem;
   border-radius: 999px;
-  background: #eef2e8;
-  color: #4f5748;
+  background: var(--accent-soft);
+  color: var(--accent);
   font-size: 0.8rem;
 }
 
@@ -252,13 +310,13 @@ a {
 }
 
 .status-available {
-  background: #e4f3df;
-  color: #386139;
+  background: var(--success-bg);
+  color: var(--success-text);
 }
 
 .status-unavailable {
-  background: #f4e2dc;
-  color: #8b4338;
+  background: var(--danger-bg);
+  color: var(--danger-text);
 }
 
 .food-card-actions,
@@ -271,12 +329,12 @@ a {
 }
 
 .secondary-button {
-  background: #ece7dd;
-  color: #232323;
+  background: var(--surface-soft);
+  color: var(--text-main);
 }
 
 .danger-button {
-  background: #b64040;
+  background: var(--accent-warm);
 }
 
 .panel {
@@ -293,7 +351,7 @@ a {
 .dish-form label {
   display: grid;
   gap: 0.45rem;
-  color: #30332d;
+  color: var(--text-main);
   font-weight: 500;
 }
 
@@ -302,16 +360,18 @@ a {
 .dish-form textarea {
   width: 100%;
   padding: 0.95rem 1rem;
-  border: 1px solid rgba(23, 23, 23, 0.12);
+  border: 1px solid rgba(19, 34, 56, 0.12);
   border-radius: 18px;
-  background: #fbfaf7;
+  background: var(--surface-strong);
   outline: none;
+  color: var(--text-main);
 }
 
 .dish-form input:focus,
 .dish-form select:focus,
 .dish-form textarea:focus {
-  border-color: #6d7a65;
+  border-color: rgba(31, 122, 140, 0.45);
+  box-shadow: 0 0 0 4px rgba(31, 122, 140, 0.08);
 }
 
 .full-width {
@@ -332,7 +392,13 @@ a {
 .dish-table td {
   text-align: left;
   padding: 1rem 0.5rem;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+  border-bottom: 1px solid rgba(19, 34, 56, 0.08);
+  vertical-align: top;
+}
+
+.table-subcopy {
+  font-size: 0.84rem;
+  margin-top: 0.28rem;
 }
 
 .details-layout {
@@ -357,18 +423,10 @@ a {
   margin-top: 1.3rem;
 }
 
-.details-meta div,
-.cart-item,
-.cart-footer {
-  padding: 1rem;
-  border-radius: 20px;
-  background: #f5f2eb;
-}
-
 .details-meta span,
 .cart-footer span {
   display: block;
-  color: #707468;
+  color: var(--text-soft);
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
 }
@@ -399,7 +457,8 @@ a {
   .hero-card,
   .details-layout,
   .admin-grid,
-  .card-grid {
+  .card-grid,
+  .hero-metrics {
     grid-template-columns: 1fr;
   }
 
