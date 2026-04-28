@@ -1,6 +1,6 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
-
+import ExpenseContext from "../context/ExpenseContext";
 const initialState = {
   name: "",
   amount: "",
@@ -19,7 +19,9 @@ const formReducer = (state, action) => {
   }
 };
 
-const AddExpense = ({ onAdd }) => {
+const AddExpense = () => {
+  const { addExpenseHandler } = useContext(ExpenseContext);
+
   // `useReducer` is another way to manage state in React.
   // It is useful when we want one central place that decides
   // how state should change.
@@ -72,7 +74,7 @@ const AddExpense = ({ onAdd }) => {
     }
 
     // We pass the new expense object to the parent through `onAdd`.
-    onAdd({
+    addExpenseHandler({
       ...state,
       name: cleanName,
       amount: Number(state.amount),
